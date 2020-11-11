@@ -1,12 +1,19 @@
 import json,requests
 import sys
 
-from flask import Flask, request
-
-sys.path.append('C:/Users/Administrator/Desktop/git仓库/PracticeProject/ServerFlask')
+from flask import Flask, request, render_template
+sys.path.append(sys.argv[0] + '../')
 from flask_run import WXBizDataCrypt
 
 app = Flask(__name__)
+
+@app.route('/login', mothod=["GET",'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login/login.html') # 模板名，关键字传参
+    elif request.method == 'POST':
+        pass
+        
 
 @app.route('/wxlogin', method=['POST'])
 def wxlogin():
